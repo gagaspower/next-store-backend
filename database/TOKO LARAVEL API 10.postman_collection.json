@@ -1,0 +1,1219 @@
+{
+	"info": {
+		"_postman_id": "3e800b38-017b-4034-8f87-3c85056050cc",
+		"name": "TOKO LARAVEL API 10",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3250234"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"marvin rafisqy\",\r\n    \"email\":\"marvin.rafisqy@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"marvin rafisqy\",\r\n    \"email\":\"marvin.rafisqy@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/user/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All With Pagination",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"marvin rafisqy\",\r\n    \"email\":\"marvin.rafisqy@gmail.com\",\r\n    \"password\":\"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Address",
+			"item": [
+				{
+					"name": "Get All With Pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add User Address",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Perumahan Dawuhan ASRI Sejahtera JL.Rajawali 1 No. 223434\",\r\n    \"user_address_prov_id\": 1,\r\n    \"user_address_kab_id\": 2,\r\n    \"user_address_kodepos\": 53372\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/address/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"address",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get By ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Perumahan Dawuhan ASRI Sejahtera JL.Rajawali 1 No. 223434\",\r\n    \"user_address_prov_id\": 1,\r\n    \"user_address_kab_id\": 2,\r\n    \"user_address_kodepos\": 53372\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/address/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"address",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Address",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Perumahan Dawuhan ASRI Sejahtera JL.Rajawali 1 No. 18D Ds. Dawuhan Kec. Padamara\",\r\n    \"user_address_prov_id\": 10,\r\n    \"user_address_kab_id\": 375,\r\n    \"user_address_kodepos\": 53372\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/address/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"address",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Address",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"address\": \"Perumahan Dawuhan ASRI Sejahtera JL.Rajawali 1 No. 18D Ds. Dawuhan Kec. Padamara\",\r\n    \"user_address_prov_id\": 10,\r\n    \"user_address_kab_id\": 375,\r\n    \"user_address_kodepos\": 53372\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/address/delete/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"address",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Wilayah Indonesia",
+			"item": [
+				{
+					"name": "Get Kabupaten From Rajaongkir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/nusantara/kota",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"nusantara",
+								"kota"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Provinsi From Rajaongkir",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/nusantara/provinsi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"nusantara",
+								"provinsi"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"marvin.rafisqy@gmail.com\",\r\n    \"password\": \"password\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI5YjBkMTI4MS1kNDljLTQ4YjAtOTIyNS1kZTA3OTQyYzRlZGEiLCJqdGkiOiJlMDNiOTg2MTEzYTdiYTFmOWUzMjk4NGJkZTRhODM2ODViY2JkMGFiNjEzYWEyOGE4MGMxMDU5YmE5NzUwY2IzZjhhMzllYWFmYmQ0NjlhMiIsImlhdCI6MTcwNDgwNTg1MC42ODQ1MzksIm5iZiI6MTcwNDgwNTg1MC42ODQ1NDIsImV4cCI6MTcyMDUzMDY1MC42NzY2NjEsInN1YiI6IjQiLCJzY29wZXMiOltdfQ.fjsKaxvU_vb7fk_uz89a1PoAU-7t5H1trDAL4hjFYBLtoo32mE0fR3zXifTZPCm-0A2u4uGUs19LD3gm9fkVYOj3hP7Am-Dt4ByePOaTx-qhHl9m-sjQAsP0a0mV4i0AnNwWL3v5aRH5MheOJBhRKri88-5UZ7rjpPzhOpRs93H3eK4fXTyGMx6_EQ0rB5OOnzqYYQRNHthh_W85u3pIjQtyAiEDI9iyEbA-Kq53IEjWylXC79PheAgfYqkxK-ckdELfNjpS06VMltMNb_gZsh8dTdJTxpT4vwg4d-oPVZwYZNcQwwrKv_3wwg69PR1sPzW0z5VFVhWw4jMSOw98OhcPChcpQ_F6rEKfbB-PxtHCnspbuaX6HgPOMqLCeumykw-WJgSfke5VsFQWXnzapKWUHhVWQzuqbPdJBXrHB_2_oUhkypUCql81fowN6JLT3I_WvCJC5jBfHwI6GyyZ0ccFjBSED4XB_OerEJh-n_7L_qaxFaYzrMQ7RoAiAfxQFinx239JSw1MCnf49vpx5WJ51qzp1k4N0QdyMJEuy__FoP8tXZUsMaC4gIShTtUwGgJdxdD0UF3Df52_oQpxVhbbQqEA7y7lrScgHJQFLUcZupMxlNXgKrqQkNdNh_MnZCwfGIrysVTb81uMSjti2wiDR0iiTlgj4LWpju_d9T8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "List Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/cat",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cat"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"Pakaian anak\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/cat/update/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cat",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"Aksesoris\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/cat/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cat",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\":\"Aksesoris\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/cat/delete/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"cat",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Attribute",
+			"item": [
+				{
+					"name": "List Attribute",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attribute",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"attribute_name\": \"Size\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Attribute",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"attribute_name\": \"Aksesoris wanita\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute/update/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Attribute",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"attribute_name\": \"Aksesoris wanita\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute/delete/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product Attribute Values",
+			"item": [
+				{
+					"name": "List Attribute Values",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute-values",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-values"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Attribute Values",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"attribute_id\": 3,\r\n    \"value\": \"Extra Large\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute-values/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-values",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Updte Attribute Values",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"attribute_id\": 2,\r\n    \"value\": \"Putih\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute-values/update/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-values",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Attribute Values",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"attribute_id\": 2,\r\n    \"value\": \"Putih\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/attribute-values/delete/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"attribute-values",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "List Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/product",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "sendal jepit merah",
+									"type": "text"
+								},
+								{
+									"key": "product_sku",
+									"value": "P-SWALLOW002",
+									"type": "text"
+								},
+								{
+									"key": "product_category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "product_desc",
+									"value": "Lorem Ipsum dolor sit amet",
+									"type": "text"
+								},
+								{
+									"key": "product_stock",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "product_price",
+									"value": "15000",
+									"type": "text"
+								},
+								{
+									"key": "product_weight",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "product_image",
+									"type": "file",
+									"src": "/C:/Users/gagas/OneDrive/Pictures/Screenshot/Screenshot 2023-11-08 084212.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/product/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/product/9",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "sendal jepit swallow kuning",
+									"type": "text"
+								},
+								{
+									"key": "product_sku",
+									"value": "P-SWALLOW001",
+									"type": "text"
+								},
+								{
+									"key": "product_category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "product_desc",
+									"value": "Lorem Ipsum dolor sit amet",
+									"type": "text"
+								},
+								{
+									"key": "product_stock",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "product_price",
+									"value": "15000",
+									"type": "text"
+								},
+								{
+									"key": "product_weight",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "product_image",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/product/update/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "sendal jepit swallow kuning",
+									"type": "text"
+								},
+								{
+									"key": "product_sku",
+									"value": "P-SWALLOW001",
+									"type": "text"
+								},
+								{
+									"key": "product_category_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "product_desc",
+									"value": "Lorem Ipsum dolor sit amet",
+									"type": "text"
+								},
+								{
+									"key": "product_stock",
+									"value": "100",
+									"type": "text"
+								},
+								{
+									"key": "product_price",
+									"value": "15000",
+									"type": "text"
+								},
+								{
+									"key": "product_weight",
+									"value": "1000",
+									"type": "text"
+								},
+								{
+									"key": "product_image",
+									"type": "file",
+									"src": "/C:/Users/gagas/Downloads/DSC_0366_COMPRESS.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/product/delete/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Banner",
+			"item": [
+				{
+					"name": "List Banner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/banner",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banner"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Banner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "banner_title",
+									"value": "Banner 1",
+									"type": "text"
+								},
+								{
+									"key": "banner_desc",
+									"value": "Lorem ipsum",
+									"type": "text"
+								},
+								{
+									"key": "banner_url",
+									"value": "http://google.com",
+									"type": "text"
+								},
+								{
+									"key": "banner_image",
+									"type": "file",
+									"src": "/C:/Users/gagas/OneDrive/Pictures/Screenshot/Screenshot 2023-11-07 214002.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/banner/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banner",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Banner",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "banner_title",
+									"value": "test update",
+									"type": "text"
+								},
+								{
+									"key": "banner_desc",
+									"value": "update description",
+									"type": "text"
+								},
+								{
+									"key": "banner_url",
+									"value": "http://google.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/banner/update/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banner",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Banner",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "banner_title",
+									"value": "test update",
+									"type": "text"
+								},
+								{
+									"key": "banner_desc",
+									"value": "update description",
+									"type": "text"
+								},
+								{
+									"key": "banner_url",
+									"value": "http://google.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/api/v1/banner/delete/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banner",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Banner",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/banner/show/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"banner",
+								"show",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUBLIC DATA",
+			"item": [
+				{
+					"name": "Show Banner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/v1/public/banner",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"public",
+								"banner"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
