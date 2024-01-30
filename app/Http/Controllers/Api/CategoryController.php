@@ -170,4 +170,14 @@ class CategoryController extends Controller
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function getCategoryBySlug(string $slug)
+    {
+        $cat = Category::slug($slug)->first();
+        if (!$cat) {
+            return response()->json(['message' => 'Category does not exists'], JsonResponse::HTTP_NOT_FOUND);
+        }
+
+        return response()->json(['message' => 'Success', 'data' => $cat], JsonResponse::HTTP_OK);
+    }
 }

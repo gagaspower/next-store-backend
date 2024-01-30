@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -15,6 +16,11 @@ class Category extends Model
     public function products()
     {
         $this->belongsTo(Product::class);
+    }
+
+    public function scopeSlug($query, $slug)
+    {
+        $query->where('category_slug', $slug);
     }
 
     public static function boot()

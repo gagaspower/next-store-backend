@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -19,12 +20,12 @@ class Product extends Model
 
     public function variants()
     {
-        return $this->hasMany(ProductVarian::class, 'product_id');
+        return $this->hasMany(ProductVarian::class, 'product_id', 'id');
     }
 
     public function variants_stock()
     {
-        return $this->hasMany(ProductVarianStock::class, 'product_id');
+        return $this->hasMany(ProductVarianStock::class, 'product_id', 'id');
     }
 
     public static function boot()
@@ -48,5 +49,10 @@ class Product extends Model
         static::updating(function ($item) {
             $item->product_slug = Str::slug($item->product_name);
         });
+    }
+
+    public function scopeSearch(Builder $query, string $search)
+    {
+        $query->where('product_name', 'LIKE', `%$search%`);
     }
 }

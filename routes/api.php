@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Public\PublicProductController;
 use App\Http\Controllers\Api\AttributeController;
 use App\Http\Controllers\Api\AttributeValueController;
 use App\Http\Controllers\Api\BannerController;
+use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\NusantaraController;
 use App\Http\Controllers\Api\ProductController;
@@ -94,14 +95,25 @@ Route::prefix('v1')->group(
                 Route::delete('/delete/{id}', 'destroy');
             });
 
+            // CART TEMPORARY
+            Route::controller(CartController::class)->prefix('cart')->group(function () {
+                Route::get('/', 'index');
+            });
             Route::post('auth/logout', [SessionController::class, 'destroy']);
         });
 
         Route::post('auth/login', [SessionController::class, 'create']);
+
         Route::prefix('public')->group(function () {
-            Route::get('/banner', [PublicBannerController::class,       'index']);
-            Route::get('/category', [PublicCategoryController::class,   'index']);
-            Route::get('/all-product', [PublicProductController::class, 'index']);
+            Route::get('/banner', [PublicBannerController::class,     'index']);
+            Route::get('/category', [PublicCategoryController::class, 'index']);
+
+            Route::get('/all-product', [ProductController::class,                  'allProduct']);
+            Route::get('/featured-product', [ProductController::class,             'featuredProduct']);
+            Route::get('/product-by-categories/{slug}', [ProductController::class, 'productByCategories']);
+            Route::get('/product-by-slug/{slug}', [ProductController::class,       'productBySlug']);
+
+            Route::get('/categories/{slug}', [CategoryController::class, 'getCategoryBySlug']);
         });
     }
 );

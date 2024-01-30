@@ -7,7 +7,9 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Product;
 use App\Models\ProductVarian;
 use App\Models\ProductVarianStock;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 
@@ -23,9 +25,15 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Product::with('category')->orderBy('id', 'desc')->paginate(10);
+        $search = $request->input('search');
+        $data   = Product::with('category', 'variants', 'variants_stock')
+                      ->when($search, function (Builder $query, string $search) {
+                          $query->where('product.product_name', 'LIKE', '%' . $search . '%');
+                      })
+                      ->orderBy('id', 'desc')
+                      ->paginate(10);
 
         return response()->json(['message' => 'Success', 'data' => $data], JsonResponse::HTTP_OK);
     }
@@ -239,5 +247,52 @@ class ProductController extends Controller
                 'message' => 'Failed to delete product',
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    // for public feature product
+    public function featuredProduct()
+    {
+        $data = Product::with('category', 'variants', 'variants_stock')->orderBy('id', 'desc')->limit(12)->get();
+
+        return response()->json(['message' => 'Success', 'data' => $data], JsonResponse::HTTP_OK);
+    }
+
+    /**
+     * for all product public router
+     */
+    public function allProduct(Request $request)
+    {
+        $search = $request->input('search');
+        $data   = Product::with('category', 'variants', 'variants_stock')
+                      ->when($search, function (Builder $query, string $search) {
+                          $query->where('product.product_name', 'LIKE', '%' . $search . '%');
+                      })
+                      ->orderBy('id', 'desc')
+                      ->paginate(12);
+
+        return response()->json(['message' => 'Success', 'data' => $data], JsonResponse::HTTP_OK);
+    }
+
+    public function productByCategories(string $slug)
+    {
+        $data = Product::with('category', 'variants', 'variants_stock')
+                    ->whereHas('category', function ($query) use ($slug) {
+                        $query->where('category_slug', $slug);
+                    })
+                    ->orderBy('id', 'desc')
+                    ->paginate(12);
+
+        return response()->json(['message' => 'Success', 'data' => $data], JsonResponse::HTTP_OK);
+    }
+
+    public function productBySlug($slug)
+    {
+        $product = Product::where('product_slug', $slug)->first();
+
+        $data = Product::with('category', 'variants', 'variants_stock')
+                    ->where('product.id', $product->id)
+                    ->first();
+
+        return response()->json(['message' => 'Success', 'data' => $data], JsonResponse::HTTP_OK);
     }
 }

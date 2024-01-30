@@ -11,5 +11,5 @@ class ProductVarian extends Model
 
     protected $table = 'product_varian';
 
-    protected $hidden = ['id', 'product_id', 'created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at'];
 }

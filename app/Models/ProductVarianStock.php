@@ -11,5 +11,5 @@ class ProductVarianStock extends Model
 
     protected $table = 'product_varian_stock';
 
-    protected $hidden = ['id', 'product_id', 'created_at', 'updated_at'];
+    protected $hidden = ['created_at', 'updated_at'];
 }
