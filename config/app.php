@@ -171,5 +171,10 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
     'rajaongkir_url' => env('RAJAONGKIR_URL'),
-    'rajaongkir_key' => env('RAJAONGKIR_KEY')
+    'rajaongkir_key' => env('RAJAONGKIR_KEY'),
+    'rajaongkir_origin' => env('RAJAONGKIR_ORIGIN'),
+    // MIDTRANS
+    'midtrans_url'    => env('MIDTRANS_BASE_URL'),
+    'midtrans_client' => env('MIDTRANS_CLIENT_KEY'),
+    'midtrans_server' => env('MIDTRANS_SERVER_KEY')
 ];

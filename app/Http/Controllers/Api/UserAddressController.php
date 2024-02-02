@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserAddressRequest;
+use App\Models\User;
 use App\Models\UsersAddress;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -146,6 +148,50 @@ class UserAddressController extends Controller
             return response()->json([
                 'message' => 'Whoops! Something wrong',
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    /**
+     * for public data
+     */
+    public function getUserAddress(User $user)
+    {
+        $data = UsersAddress::with('user', 'provinsi', 'kota')
+                    ->where('user_id', Auth::user()->id)
+                    ->get();
+
+        return response()->json([
+            'message' => 'Success',
+            'data'    => $data
+        ], JsonResponse::HTTP_OK);
+    }
+
+    public function setDefaultAddress(Request $request)
+    {
+        DB::commit();
+        try {
+            $data = DB::table('users_address')
+                        ->where('id', $request->addressId)
+                        ->update([
+                            'isDefault' => true
+                        ]);
+
+            if ($data) {
+                DB::table('users_address')
+                    ->where('user_id', Auth::user()->id)
+                    ->where('id', '<>', $request->addressId)
+                    ->update([
+                        'isDefault' => false
+                    ]);
+            }
+
+            DB::commit();
+
+            return response()->json(['status' => true, 'message' => 'Default address has been set'], JsonResponse::HTTP_OK);
+        } catch (\Throwable $th) {
+            DB::rollBack();
+
+            return response()->json(['status' => false, 'message' => $th->getMessage()], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
 }

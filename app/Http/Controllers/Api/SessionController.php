@@ -25,6 +25,7 @@ class SessionController extends Controller
         $token = $user->createToken('Lara-Store-Token')->accessToken;
 
         $auth_data = [
+            'id'    => $user->id,
             'name'  => $user->name,
             'roles' => $user->roles,
         ];

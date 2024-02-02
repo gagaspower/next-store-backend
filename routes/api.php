@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\BannerController;
 use App\Http\Controllers\Api\CartController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\NusantaraController;
+use App\Http\Controllers\Api\OrdersController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\SessionController;
 use App\Http\Controllers\Api\UserAddressController;
@@ -49,6 +50,7 @@ Route::prefix('v1')->group(
             Route::controller(NusantaraController::class)->group(function () {
                 Route::get('nusantara/provinsi', 'province');
                 Route::get('nusantara/kota', 'kota');
+                Route::post('nusantara/cost', 'getCost');
             });
 
             Route::controller(CategoryController::class)->prefix('cat')->group(function () {
@@ -100,6 +102,16 @@ Route::prefix('v1')->group(
                 Route::get('/', 'index');
             });
             Route::post('auth/logout', [SessionController::class, 'destroy']);
+
+            // user address
+            Route::get('/user-address', [UserAddressController::class,         'getUserAddress']);
+            Route::post('/set-default-address', [UserAddressController::class, 'setDefaultAddress']);
+
+            Route::controller(OrdersController::class)->prefix('order')->group(function () {
+                Route::get('/', 'index');
+                Route::post('/create', 'store');
+                Route::get('/detail/{code}', 'show');
+            });
         });
 
         Route::post('auth/login', [SessionController::class, 'create']);
@@ -114,6 +126,13 @@ Route::prefix('v1')->group(
             Route::get('/product-by-slug/{slug}', [ProductController::class,       'productBySlug']);
 
             Route::get('/categories/{slug}', [CategoryController::class, 'getCategoryBySlug']);
+
+            Route::get('/shopping-cart/{user_id}', [CartController::class, 'index']);
+            Route::post('/add-to-cart', [CartController::class,            'createTemp']);
+            Route::post('/update-cart', [CartController::class,            'updateCart']);
+            Route::get('/delete-cart/{id}', [CartController::class,        'deleteCart']);
+
+            Route::get('/download-invoice', [OrdersController::class, 'downloadInvoice']);
         });
     }
 );

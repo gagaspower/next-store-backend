@@ -9,7 +9,8 @@ class CartTemp extends Model
 {
     use HasFactory;
 
-    protected $table = 'cart_temp';
+    protected $table    = 'cart_temp';
+    protected $fillable = ['cart_date', 'product_id', 'product_qty', 'product_variant_stock_id', 'user_id'];
 
     public function user()
     {

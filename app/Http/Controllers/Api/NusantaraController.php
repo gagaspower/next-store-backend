@@ -7,6 +7,7 @@ use App\Models\Kota;
 use App\Models\Provinsi;
 use App\Service\RajaOngkir;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
@@ -89,5 +90,12 @@ class NusantaraController extends Controller
                 'message' => 'Whoops! something wrong'
             ], JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public function getCost(Request $request)
+    {
+        $data = $this->rajaongkir->getCost($request->destination, $request->weight, $request->courier);
+
+        return response()->json($data);
     }
 }
