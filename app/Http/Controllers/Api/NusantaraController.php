@@ -98,4 +98,18 @@ class NusantaraController extends Controller
 
         return response()->json($data);
     }
+
+    public function showAllProv()
+    {
+        $data = Provinsi::all();
+
+        return response()->json($data, JsonResponse::HTTP_OK);
+    }
+
+    public function showAllKota($provinsi_id)
+    {
+        $data = Kota::where('city_province_id', $provinsi_id)->get();
+
+        return response()->json($data, JsonResponse::HTTP_OK);
+    }
 }

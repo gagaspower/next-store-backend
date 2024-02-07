@@ -115,9 +115,9 @@
                 <th>Harga</th>
                 <th>Subtotal</th>
             </tr>
-
+  @foreach($data['orders_detail'] as $item)
             <tr class="items">
-                @foreach($data['orders_detail'] as $item)
+
                 <td>
                     {{ $item->product->product_name }}
                     <br />
@@ -134,8 +134,9 @@
                 <td>
                     Rp. {{ number_format($item['product_qty']*$item['product_price']) }}
                 </td>
-                @endforeach
+
             </tr>
+             @endforeach
             <tr class="footer">
                 <td colspan="2"></td>
                 <td>

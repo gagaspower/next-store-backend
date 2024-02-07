@@ -47,7 +47,7 @@ class UserAddressController extends Controller
             $address->user_address_prov_id = $request->user_address_prov_id;
             $address->user_address_kab_id  = $request->user_address_kab_id;
             $address->user_address_kodepos = $request->user_address_kodepos;
-            $address->user_id              = 3;
+            $address->user_id              = Auth::user()->id;
             $address->save();
 
             DB::commit();
@@ -154,7 +154,7 @@ class UserAddressController extends Controller
     /**
      * for public data
      */
-    public function getUserAddress(User $user)
+    public function getUserAddress()
     {
         $data = UsersAddress::with('user', 'provinsi', 'kota')
                     ->where('user_id', Auth::user()->id)

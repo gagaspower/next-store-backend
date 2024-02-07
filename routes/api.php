@@ -133,6 +133,9 @@ Route::prefix('v1')->group(
             Route::get('/delete-cart/{id}', [CartController::class,        'deleteCart']);
 
             Route::get('/download-invoice', [OrdersController::class, 'downloadInvoice']);
+
+            Route::get('/get-provinsi', [NusantaraController::class,           'showAllProv']);
+            Route::get('/get-kota/{provinsi_id}', [NusantaraController::class, 'showAllKota']);
         });
     }
 );

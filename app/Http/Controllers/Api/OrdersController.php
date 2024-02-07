@@ -40,11 +40,17 @@ class OrdersController extends Controller
      */
     public function index(User $user)
     {
-        $orderQuery = Order::with('orders_detail.product', 'expedisi', 'payment_bank', 'user');
+        $orderQuery = Order::with(['orders_detail.product' => function ($query) {
+            $query->select('id', 'product_name');
+        }, 'orders_detail.product_variants' => function ($query) {
+            $query->select('id', 'product_varian_name');
+        }, 'expedisi', 'payment_bank', 'user.address' => function ($query) {
+            $query->where('isDefault', true);
+        }, 'user.address.provinsi', 'user.address.kota']);
         if ($user->roles == 'user') {
-            $order = $orderQuery->where('orders.user_id', $user->id)->get();
+            $order = $orderQuery->where('orders.user_id', $user->id)->latest()->paginate(10);
         } else {
-            $order = $orderQuery->get();
+            $order = $orderQuery->latest()->paginate(10);
         }
 
         return response()->json(['data' => $order], JsonResponse::HTTP_OK);
